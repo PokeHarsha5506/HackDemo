@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EdTech Dropout Risk Platform | Early Warning & Student Success Insights</title>
+  <meta name="description" content="A calm, student-friendly AI platform for identifying edtech course dropout risk, analyzing key academic factors, and providing targeted interventions." />
+  
+  <!-- CSS Design System -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">🎓</div>
+        <div>
+          <h1 class="brand-title">EdTech Dropout Risk Platform</h1>
+          <p class="brand-subtitle">Student Retention & Academic Success Analytics</p>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="nav-tabs" aria-label="Main Navigation">
+        <button class="nav-btn active" id="nav-predict" aria-controls="screen-predict">
+          <span>👤</span> Single Student
+        </button>
+        <button class="nav-btn" id="nav-batch" aria-controls="screen-batch">
+          <span>📁</span> Batch CSV
+        </button>
+      </nav>
+
+      <!-- Mock Mode Banner & Toggle -->
+      <div class="header-controls">
+        <div class="mock-banner hidden" id="mock-banner" role="status" aria-live="polite">
+          <span>⚡</span> MOCK DATA ACTIVE
+        </div>
+        <button class="btn btn-outline btn-pill" id="mock-toggle-btn" title="Toggle Mock Mode for Offline Demo">
+          <span id="mock-status-text">Live API Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+
+    <!-- Screen 1: Single Student Prediction View -->
+    <section class="screen-view active-screen" id="screen-predict" aria-labelledby="predict-heading">
+      <h2 id="predict-heading" class="sr-only" style="display:none;">Single Student Dropout Risk Assessment</h2>
+
+      <div class="predict-layout">
+        <!-- Input Form Section -->
+        <div class="card form-section">
+          <div class="card-header">
+            <h2 class="card-title">📝 Student Metrics Input</h2>
+            <span class="card-subtitle">Dynamic Schema Form</span>
+          </div>
+
+          <form id="student-form" novalidate>
+            <div id="form-container">
+              <!-- Dynamically populated from /api/schema -->
+              <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Initializing schema...</p>
+              </div>
+            </div>
+
+            <div id="form-status-area" style="margin-top: var(--s4);"></div>
+
+            <div style="margin-top: var(--s5);">
+              <button type="submit" class="btn btn-primary btn-block btn-pill" id="submit-btn">
+                📊 Assess Dropout Risk
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Result & Analytics Dashboard Section -->
+        <div class="result-section" id="result-container" role="region" aria-live="polite">
+          <!-- Dynamically populated by render.js -->
+          <div class="card empty-state">
+            <div class="state-icon">📊</div>
+            <h3>Generating Risk Profile</h3>
+            <p>Please wait while student indicators are analyzed by the predictive model.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 2: Batch CSV Analysis View -->
+    <section class="screen-view" id="screen-batch" aria-labelledby="batch-heading">
+      <h2 id="batch-heading" class="sr-only" style="display:none;">Batch CSV Risk Analysis</h2>
+      <!-- Dynamically populated by batch.js -->
+    </section>
+
+  </main>
+
+  <!-- App Footer -->
+  <footer class="app-footer">
+    <p>EdTech Dropout Risk Platform &copy; 2026 • Built with Vanilla Web Standards & Pastel Design System</p>
+  </footer>
+
+  <!-- Native ES Module Bootstrapper -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
